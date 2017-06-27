@@ -1,28 +1,30 @@
 import React from 'react';
-import faker from 'faker';
-import MenuItem from './MenuItem';
+import './MenuItem.css';
+import data from '../data.js';
 
-const menuFoods = [];
+const MenuItem = ({ item }) => {
+  const { image, name, description, price } = item;
 
-for (let i = 0; i < 6; i++) {
-  menuFoods.push({
-    image: faker.image.food(),
-    name: faker.commerce.productName(),
-    description: faker.lorem.sentence(),
-    price: faker.commerce.price()
-  });
-}
+  return (
+    <div className="MenuItem col-md-4">
+        <img src={ image } className="img-responsive" alt=""/>
+        <p>{ name }</p>
+        <p>{ description }</p>
+        <p>${ price }</p>
+    </div>
+  )
+};
 
 const Menu = () => {
-  const menuItems = menuFoods.map(item => (
-    <MenuItem item={ item } key={ item.name } />
+  const menuItems = data.menu.menuFoods.map((item, index) => (
+    <MenuItem item={ item } key={ index } />
   ));
 
   return (
     <div id="menu">
       <div className="jumbotron">
         <div className="container">
-          <h1>Menu</h1>
+          <h1>{ data.menu.title }</h1>
           <div className="row">{ menuItems }</div>
         </div>
       </div>
