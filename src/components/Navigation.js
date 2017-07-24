@@ -35,7 +35,7 @@ const NavigationMenu = () => {
 
 const Navigation = () => {
   return (
-    <nav className="Navigation navbar navbar-inverse navbar-fixed-top">
+    <nav className="Navigation navbar bg-primary navbar-fixed-top">
       <div className="container-fluid">
         <NavigationHeader />
         <NavigationMenu />
